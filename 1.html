@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Simple Test</title>
+</head>
+
+<body>
+	<script>
+		// Array of questions
+		var questions = [
+			"Is the sky blue?",
+			"Is the earth round?",
+			"Is water wet?",
+			"Is JavaScript a programming language?"
+		];
+
+		// Array of marks for each question
+		var marks = [
+			2,
+			3,
+			1,
+			2
+		];
+
+		// Function to administer the test
+		function administerTest() {
+			var totalMarks = 0;
+
+			// Loop through each question
+			for (var i = 0; i < questions.length; i++) {
+				var userAnswer = confirm(questions[i]); // Display question and get user's answer
+
+				// Add marks if the answer is correct
+				if (userAnswer) {
+					totalMarks += marks[i];
+				}
+			}
+
+			// Display the result
+			alert("Your total marks: " + totalMarks);
+		}
+
+		// Call the function to administer the test
+		administerTest();
+	</script>
+</body>
+
+</html>
