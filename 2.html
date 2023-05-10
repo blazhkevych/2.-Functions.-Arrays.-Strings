@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Full Name Validation</title>
+</head>
+
+<body>
+	<script>
+		function validateFullName(fullName) {
+			var invalidChars = "!@#$%^&*()_+=1234567890~`{}[]|\\:;\"'<>,/?"; // Invalid characters
+
+			// Loop through each character in the input
+			for (var i = 0; i < fullName.length; i++) {
+				var char = fullName[i];
+
+				// Check if the character is an invalid character
+				if (invalidChars.indexOf(char) !== -1) {
+					return false; // Invalid character found
+				}
+			}
+
+			return true; // No invalid characters found
+		}
+
+		// Example usage
+		var userInput = prompt("Enter your full name:");
+		var isValid = validateFullName(userInput);
+
+		if (isValid) {
+			alert("Valid input");
+		} else {
+			alert("Invalid input");
+		}
+	</script>
+</body>
+
+</html>
