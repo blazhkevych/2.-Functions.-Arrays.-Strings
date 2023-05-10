@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>HTTP Address Components</title>
+</head>
+
+<body>
+	<script>
+		// Prompt the user to enter a URL
+		let url = prompt("Please enter a URL:");
+
+		// Find the index of the colon character in the URL
+		let protocolIndex = url.indexOf(":");
+		// Extract the protocol from the URL by slicing from the start of the string to the index of the colon character
+		let protocol = url.slice(0, protocolIndex + 1);
+
+		// Find the start index of the host by finding the index of the "//" characters and adding 2
+		let hostStartIndex = url.indexOf("//") + 2;
+		// Find the end index of the host by finding the index of the first "/" character after the start index of the host
+		let hostEndIndex = url.indexOf("/", hostStartIndex);
+		// Extract the host from the URL by slicing from the start index to the end index of the host
+		let host = url.slice(hostStartIndex, hostEndIndex);
+
+		// Set the start index of the path to be equal to the end index of the host
+		let pathStartIndex = hostEndIndex;
+		// Find the end index of the path by finding the last index of the "/" character in the URL
+		let pathEndIndex = url.lastIndexOf("/");
+		// Extract the path from the URL by slicing from the start index to one character after the end index of the path
+		let path = url.slice(pathStartIndex, pathEndIndex + 1);
+
+		// Set the start index of the file name to be one character after the end index of the path
+		let fileNameStartIndex = pathEndIndex + 1;
+		// Find the end index of file name by finding the index of "?" character in URL
+		let fileNameEndIndex = url.indexOf("?");
+		// If "?" is not found in URL then set fileNameEndIndex to length of URL
+		if (fileNameEndIndex === -1) {
+			fileNameEndIndex = url.length;
+		}
+		// Extract file name from URL by slicing from start index to end index of file name
+		let fileName = url.slice(fileNameStartIndex, fileNameEndIndex);
+
+		// Set start index of query string to one character after end index of file name
+		let queryStringStartIndex = fileNameEndIndex + 1;
+		// Extract query string from URL by slicing from start index to end of URL
+		let queryString = url.slice(queryStringStartIndex);
+
+		// Write each component on a new line on page using document.write method and <br> tag for line break
+		document.write(`Protocol: ${protocol}<br>`);
+		document.write(`Host: ${host}<br>`);
+		document.write(`Path: ${path}<br>`);
+		document.write(`File name: ${fileName}<br>`);
+		document.write(`Query string: ${queryString}`);
+	</script>
+</body>
+
+</html>
